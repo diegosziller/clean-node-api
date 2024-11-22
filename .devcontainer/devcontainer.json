@@ -1,8 +1,23 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "Untitled Node.js project",
+	"name": "Clean Node Api Dev Container",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-  "remoteUser": "node"
+	"features": {
+		"ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+	},
+	"runArgs": [
+		"--name", "clean-node-api-devcontainer",
+		"--volume", "${env:HOME}/.gitconfig:/home/${USER}/.gitconfig"
+	],
+	"remoteUser": "node",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"standard.vscode-standard"
+			]
+		}
+	}
 }
